@@ -39,12 +39,12 @@
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
-\icmltitlerunning{Short Title}
+\icmltitlerunning{Group 2 Project Proposal}
 
 \begin{document} 
 
 \twocolumn[
-\icmltitle{Title}
+\icmltitle{Group 2 Project Proposal: United States Obesity Risk Factor Exploration}
 
 % It is OKAY to include author information, even for blind
 % submissions: the style file will automatically remove it for you
@@ -72,27 +72,28 @@
 \section{Introduction}
 \label{introduction}
 
-Obesity is a major challenge facing the healthcare system in the United States. With obesity rates increasing significantly over the last thirty years, if this trend continues, the United States healthcare system is projected to pay \$150 billion annually [cite https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3033553/].
+Obesity is a major challenge facing the healthcare system in the United States. With obesity rates increasing significantly over the last thirty years, if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
 In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the enviroment. 
-Enviromental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health. 
+Enviromental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
 The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to the incidence of obesity.
 
 \section{Dataset}
 \label{dataset}
 
-For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC) provides information on the percentage of the population suffering from adult obesitiy, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. These data also include potential risk factor featues, such as age, education, sex, and income [cite dataset].
+For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC) provides information on the percentage of the population suffering from adult obesitiy, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. These data also include potential risk factor featues, such as age, education, sex, and income \cite{nutphysactobesitydata}.
 In addition, this dataset provides similar population information for child obesity, infant breastfeeding, active transportation, and community policy supports.
 
 \section{Purpose}
 \label{purpose}
-
+% Questions you intend to answer go here!
 The main overarching question this project will investigate is: which regions of the United States suffer most from these negative enviromental trends and...
+\\\\
 This project will seek to answer several...
 
 \section{Methodology}
 \label{methodology}
 % Clustering of obesity stats
-To begin, our group will attempt to use the Nutrition, Physical Activity, and Obesity dataset to generate heatmaps of obesity, physical inactivity, and poor nutrition which can be compared to those provided by the CDC [cite: https://www.cdc.gov/obesity/data/prevalence-maps.html]. 
+To begin, our group will attempt to use the Nutrition, Physical Activity, and Obesity dataset to generate heatmaps of obesity, physical inactivity, and poor nutrition which can be compared to those provided by the CDC \cite{adultobesitymaps}. 
 To begin to understand the best grouping of regions based on their obesity statistics, we will perform a clustering analysis. 
 We will start this analysis by performing heirarchical clustering with a Euclidean distance metric so that we will be able to visualize and present the links between different regions through a dendrogram. 
 Starting with average linkage clustering, we will also experiment with the results of complete and single-linkage clustering, explaining the reasoning for any differences. 
@@ -101,8 +102,8 @@ We then plan to perform a similar clustering analysis for physical inactivity an
 \\\\
 % Clustering by risk factor
 We will then attempt to perform a clustering analysis to begin to understand ways in which geographical regions have similar obesity risk factor conditions. 
-Initially we will utilize a k-means clustering analysis for this. To do this, we will first perform a k-means clustering analysis for the obesity statistics, similarly to when we performed hierarchical clustering and DBSCAN. 
-We will perform this analysis for several values of k, plotting the objective function value for each value of $k$. We will select the value for $k$ corresponding to the “kink” in the objective function and use this $k$ value for our clustering of risk factor conditions. 
+Initially we will utilize a k-means clustering analysis for this. To do this, we will first perform a $k$-means clustering analysis for the obesity statistics, similarly to when we performed hierarchical clustering and DBSCAN. 
+We will perform this analysis for several values of $k$, plotting the objective function value for each value of $k$. We will select the value for $k$ corresponding to the “kink” in the objective function and use this $k$ value for our clustering of risk factor conditions. 
 This will allow us to compare the risk factor condition regions with those of obesity statistics. 
 We will then experiment with clustering of risk factor conditions for other values of $k$ and plot the results.
 \\\\
