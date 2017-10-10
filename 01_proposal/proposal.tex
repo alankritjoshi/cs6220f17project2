@@ -73,31 +73,29 @@
 \label{introduction}
 
 Obesity is a major challenge facing the healthcare system in the United States. With obesity rates increasing significantly over the last thirty years, if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
-In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the enviroment. 
-Enviromental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
+In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the environment. 
+Environmental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
 The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to the incidence of obesity.
 
 \section{Dataset}
 \label{dataset}
 
-For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC) provides information on the percentage of the population suffering from adult obesitiy, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. These data also include potential risk factor featues, such as age, education, sex, and income \cite{nutphysactobesitydata}.
+For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC) provides information on the percentage of the population suffering from adult obesity, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. These data also include potential risk factor features, such as age, education, sex, and income \cite{nutphysactobesitydata}.
 In addition, this dataset provides similar population information for child obesity, infant breastfeeding, active transportation, and community policy supports.
 
 \section{Purpose}
 \label{purpose}
 % Questions you intend to answer go here!
-The main overarching question this project will investigate is: which regions of the United States suffer most from these negative enviromental trends and...
-\\\\
-This project will seek to answer several...
+The main goal of this project is to identify and understand risk factors such as poor nutrition and physical inactivity and show their correlations to obesity. We will start from visualizing and analyzing the distribution of obesity, physical activity and nutrition conditions across United States using state-by-state data from 2011 to 2016. We will find the prevalence of overweight and obesity in United States and its trend. We will find the correlation of obesity with risk factors including poor nutrition, physical inactivity. We will also identify regions that share the same risk factors. Different socioeconomical, racial and ethnic groups will also be studied to learn more how inequalities contribute to higher obesity rates in certain communities.
 
 \section{Methodology}
 \label{methodology}
 % Clustering of obesity stats
 To begin, our group will attempt to use the Nutrition, Physical Activity, and Obesity dataset to generate heatmaps of obesity, physical inactivity, and poor nutrition which can be compared to those provided by the CDC \cite{adultobesitymaps}. 
 To begin to understand the best grouping of regions based on their obesity statistics, we will perform a clustering analysis. 
-We will start this analysis by performing heirarchical clustering with a Euclidean distance metric so that we will be able to visualize and present the links between different regions through a dendrogram. 
+We will start this analysis by performing heirachial clustering with a Euclidean distance metric so that we will be able to visualize and present the links between different regions through a dendrogram. 
 Starting with average linkage clustering, we will also experiment with the results of complete and single-linkage clustering, explaining the reasoning for any differences. 
-We will compare these results with those gained from the density-based spatial clustering of applications with noise (DBSCAN) algorithm, which has the benefits of finding arbitrarialy-shaped clusters and being more robust to noise. 
+We will compare these results with those gained from the density-based spatial clustering of applications with noise (DBSCAN) algorithm, which has the benefits of finding arbitrarily-shaped clusters and being more robust to noise. 
 We then plan to perform a similar clustering analysis for physical inactivity and malnutrition statistics.
 \\\\
 % Clustering by risk factor
