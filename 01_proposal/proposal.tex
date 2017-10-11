@@ -54,7 +54,7 @@
 %\icmladdress{Your Fantastic Institute,
 %            314159 Pi St., Palo Alto, CA 94306 USA}
 \icmlauthor{Alankrit Joshi}{alankrit93@ccs.neu.edu}
-\icmlauthor{Rahul Kondakrindi}{email}
+\icmlauthor{Rahul Kondakrindi}{rahulkondakrindi@ccs.neu.edu}
 \icmlauthor{Prasanna Vikash Peddinti}{email}
 \icmlauthor{Junyi Wang}{wang4615@ccs.neu.edu}
 
@@ -72,10 +72,12 @@
 \section{Introduction}
 \label{introduction}
 
-Obesity is a major challenge facing the healthcare system in the United States. With obesity rates increasing significantly over the last thirty years, if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
+Obesity is a major challenge facing the healthcare system in the United States. With obesity rates rising significantly over the last thirty years and if the rise continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
+
 In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the environment. 
 Environmental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
-The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to the incidence of obesity.
+
+The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to obesity and health.
 
 \section{Dataset}
 \label{dataset}
@@ -86,32 +88,37 @@ In addition, this dataset provides similar population information for child obes
 \section{Purpose}
 \label{purpose}
 % Questions you intend to answer go here!
-The main goal of this project is to identify and understand risk factors such as poor nutrition and physical inactivity and show their correlations to obesity. We will start from visualizing and analyzing the distribution of obesity, physical activity and nutrition conditions across United States using state-by-state data from 2011 to 2016. We will find the prevalence of overweight and obesity in United States and its trend. We will find the correlation of obesity with risk factors including poor nutrition, physical inactivity. We will also identify regions that share the same risk factors. Different socioeconomical, racial and ethnic groups will also be studied to learn more how inequalities contribute to higher obesity rates in certain communities.
+The primary purpose is to correlate risk factors such as poor nutrition and physical inactivity with obesity and find if they affect population's health.
+
+We will start by analyzing the distribution of obesity, physical activity and nutrition conditions across the United States using state-by-state data from 2011 to 2016. This will eventually lead to generating visualizations which we shall compare with those provided by the CDC. There will also be a need to link the regions which are closely associated. We plan to start analysis first on obesity statistics and then physical activity and nutrition.
+
+The next step is to figure out how the regions have similar obesity risk factors, including physical inactivity and nutrition. This will involve comparing the risk factor regions with obesity statistics. Different socio-economic, racial and ethnic groups will also be studied to learn more how inequalities contribute to higher obesity rates in certain communities.
+
+The final part will be to map out the prevalence and trend of obesity along with its dependence on risk factors. We aim to create multiple visualizations to better understand how such risk factors contribute to health.
+
+All of these steps will eventually help us answer whether environmental risk factors have a definite impact on population's health and obesity.
 
 \section{Methodology}
 \label{methodology}
 % Clustering of obesity stats
-To begin, our group will attempt to use the Nutrition, Physical Activity, and Obesity dataset to generate heatmaps of obesity, physical inactivity, and poor nutrition which can be compared to those provided by the CDC \cite{adultobesitymaps}. 
-To begin to understand the best grouping of regions based on their obesity statistics, we will perform a clustering analysis. 
-We will start this analysis by performing heirachial clustering with a Euclidean distance metric so that we will be able to visualize and present the links between different regions through a dendrogram. 
+We will attempt to use the Nutrition, Physical Activity, and Obesity dataset to generate heatmaps of obesity, physical inactivity, and poor nutrition which can be compared to those provided by the CDC \cite{adultobesitymaps}. 
+
+To begin to understand the best grouping of regions based on their obesity statistics, we will perform a cluster analysis. We will start this analysis by performing hierarchical clustering with a Euclidean distance metric so that we will be able to visualize and present the links between different regions through a dendrogram. 
+
 Starting with average linkage clustering, we will also experiment with the results of complete and single-linkage clustering, explaining the reasoning for any differences. 
 We will compare these results with those gained from the density-based spatial clustering of applications with noise (DBSCAN) algorithm, which has the benefits of finding arbitrarily-shaped clusters and being more robust to noise. 
 We then plan to perform a similar clustering analysis for physical inactivity and malnutrition statistics.
 \\\\
 % Clustering by risk factor
 We will then attempt to perform a clustering analysis to begin to understand ways in which geographical regions have similar obesity risk factor conditions. 
-Initially we will utilize a k-means clustering analysis for this. To do this, we will first perform a $k$-means clustering analysis for the obesity statistics, similarly to when we performed hierarchical clustering and DBSCAN. 
-We will perform this analysis for several values of $k$, plotting the objective function value for each value of $k$. We will select the value for $k$ corresponding to the “kink” in the objective function and use this $k$ value for our clustering of risk factor conditions. 
-This will allow us to compare the risk factor condition regions with those of obesity statistics. 
-We will then experiment with clustering of risk factor conditions for other values of $k$ and plot the results.
+Initially, we will utilize a k-means clustering analysis for this. To do this, we will first perform a $k$-means clustering analysis for the obesity statistics, similarly to when we performed hierarchical clustering and DBSCAN. 
+We will perform this analysis for several values of $k$, plotting the objective function value for each value of $k$. We will select the value for $k$ corresponding to the “kink” in the objective function and use this $k$ value for our clustering of risk factor conditions. This will allow us to compare the risk factor condition regions with those of obesity statistics. We will then experiment with clustering of risk factor conditions for other values of $k$ and plot the results.
 \\\\
 % Dim. red.
-To better understand how much these environmental risk factor values contribute to population obesity, we then plan to perform dimensionality reduction on these features. 
-We will start with principal component analysis (PCA) and use the first two principal components to make a two dimensional plot of the risk factors 
-We will also make three dimensional visualizations using the first three principal components.
-These plots will be color coded based on obesity prevalence groupings identified through previous analyses.
-We then plan to explore similar dimensionality reduction analyses to produce the best human-readable visualization of these environmental risk factors. 
-From this visualization, using \verb|D3.js|, we will then create a 3D interactive visualization that allows for the visualization of obesity prevalence in the United States and its dependance on risk factors. This visualization will hopefully demonstrate that enviromental risk factors have a clear effect on population health.
+To better understand how much these environmental risk factor values contribute to population obesity, we then plan to perform dimensionality reduction on these features. We will start with principal component analysis (PCA) and use the first two principal components to make a two-dimensional plot of the risk factors 
+We will also make three-dimensional visualizations using the first three principal components. These plots will be color-coded based on obesity prevalence groupings identified through previous analyses.
+
+We then plan to explore similar dimensionality reduction analyses to produce the best human-readable visualization of these environmental risk factors. From this visualization, using \verb|D3.js|, we will then create a 3D interactive visualization that allows for the visualization of obesity prevalence in the United States and its dependence on risk factors. This visualization will hopefully demonstrate that environmental risk factors have a clear effect on population health.
 
 \section{Distribution of Work}
 \label{distribution}
