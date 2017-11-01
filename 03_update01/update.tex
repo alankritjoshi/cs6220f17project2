@@ -14,23 +14,23 @@
 \usepackage{natbib}
 
 % For algorithms
-\usepackage{algorithm}
-\usepackage{algorithmic}
+% \usepackage{algorithm}
+% \usepackage{algorithmic}
 
 % As of 2011, we use the hyperref package to produce hyperlinks in the
 % resulting PDF.  If this breaks your system, please commend out the
 % following usepackage line and replace \usepackage{icml2015} with
 % \usepackage[nohyperref]{icml2015} above.
-% \usepackage{hyperref}
+\usepackage{hyperref}
 
 % Packages hyperref and algorithmic misbehave sometimes.  We can fix
 % this with the following command.
-\newcommand{\theHalgorithm}{\arabic{algorithm}}
+% \newcommand{\theHalgorithm}{\arabic{algorithm}}
 
 % Employ the following version of the ``usepackage'' statement for
 % submitting the draft version of the paper for review.  This will set
 % the note in the first column to ``Under review.  Do not distribute.''
-%\usepackage{icml2015} 
+% \usepackage{icml2015} 
 
 % Employ this version of the ``usepackage'' statement after the paper has
 % been accepted, when creating the final version.  This will set the
@@ -94,7 +94,7 @@
 		
 	\section{Exploratory Analysis and Results}
 		\label{results}
-		Our initial exploratory analysis involved generating state-wise interactive plots for each condition in the dataset. These plots were shown on an interactive map, which allowed our team to begin to explore and understand the dataset. The conditions plotted were percentage of adults who are obese, the percentage of adults who are overweight, the percentage of adults who engage in no physical activity, the percentage of adults who eat less than one fruit per day, and the percentage of adults who eat less than one vegetable per day. Screenshots of these plots are shown in \Cref{fig:obesityByState,fig:overweightAdultsByLocation,fig:inactivityByLocation,fig:vegetableMalnutritionByLocation,fig:fruitMalnutritionByLocation,fig:fruitMalnutritionVsObesity,fig:fruitMalnutritionByLocation,fig:aerobicActivityVsObesity,fig:fruitMalnutritionByLocation,fig:noPhyActivityVsObesity,fig:aerobicVsMalnutrition,fig:trainingVsObesity,fig:vegMalnutritionVsObesity} below. 
+		Our initial exploratory analysis involved generating state-wise interactive plots for each condition in the dataset. These plots were shown on an interactive map, which allowed our team to begin to explore and understand the dataset. The conditions plotted were percentage of adults who are obese, the percentage of adults who are overweight, the percentage of adults who engage in no physical activity, the percentage of adults who eat less than one fruit per day, and the percentage of adults who eat less than one vegetable per day. Screenshots of these plots are shown in \cref{fig:obesityByState,fig:overweightAdultsByLocation,fig:inactivityByLocation,fig:vegetableMalnutritionByLocation,fig:fruitMalnutritionByLocation} below. 
 		\begin{figure}[h]
 			\centering
 			\caption{Obesity by State}
@@ -125,6 +125,13 @@
 			\includegraphics[width=\linewidth]{"5 fruit malnutrition by location (alternate)".png}
 			\label{fig:fruitMalnutritionByLocation}
 		\end{figure}
+		\\\\
+		From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
+		% Expand on these here- what are the patterns we see in these plots
+		We also wanted to start visualizing relationships between specific features to understand the dataset in finer detail. One way we did this was to look at the relationship between some of the other conditions and obesity on a state-by-state basis. These plots are shown in \cref{fig:fruitMalnutritionVsObesity,fig:aerobicActivityVsObesity,fig:noPhyActivityVsObesity}. 
+		\\\\
+		We also wanted to create plots to visually look at the percentages of adults in these other conditions and obesity based on age and educational risk factors. We have included a few of these plots in \cref{fig:aerobicVsMalnutrition,fig:trainingVsObesity,fig:vegMalnutritionVsObesity} below.
+		% Do same thing for rest of plots
 		\begin{figure}[h]
 			\centering
 			\caption{}
@@ -161,16 +168,11 @@
 			\includegraphics[width=\linewidth]{"11 VegMalnutritionVsObesity(Age-comparision)".png}
 			\label{fig:vegMalnutritionVsObesity}
 		\end{figure}
-		\\\\
-		From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
-		% Expand on these here- what are the patterns we see in these plots
-		
-		% Do same thing for rest of plots
 		% Explain specifically how they are made and what is plotted where, what error bars mean
 		% For scatters, this is a relation, but remember correlation doesn't imply causation, so don't claim that bad diet causes obesity, etc.
 		% For bar plots, this is just a visual representation for comparison
 		% Explain why they are useful- how they will drive next steps- what they allow us to understand
-	
+		
 	\section{Next Steps and Future Work}
 		\label{futurework}
 		Now that this exploratory analysis is complete, we have a fair idea of how to move forward with grouping regions based on their obesity and nutrition statistics. Our team plans to move forward with cluster analysis and visualizations. 
@@ -183,13 +185,9 @@
 		Comparing these results with DBSCAN would give us a more precise assessment of how accurate our clustering is by identifying noise and arbitrarily shaped clusters.
 		\\\\
 		The final step of the cluster analysis would involve performing \textit{k}-means for several values of \textit{k}, plotting objective function for each. We will select a \textit{k} based on the "kink" in objective function and then proceed with plotting the results.
-		
-		
-		
 		% In the unusual situation where you want a paper to appear in the
 		% references without citing it in the main text, use \nocite
 		%\nocite{langley00}
-	
 	\bibliography{update}
 	\bibliographystyle{icml2015}
 
