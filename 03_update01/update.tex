@@ -21,7 +21,7 @@
 % resulting PDF.  If this breaks your system, please commend out the
 % following usepackage line and replace \usepackage{icml2015} with
 % \usepackage[nohyperref]{icml2015} above.
-\usepackage{hyperref}
+% \usepackage{hyperref}
 
 % Packages hyperref and algorithmic misbehave sometimes.  We can fix
 % this with the following command.
@@ -37,86 +37,161 @@
 % note in the first column to ``Proceedings of the...''
 \usepackage[accepted]{icml2015}
 
+\usepackage{cleveref}
+
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
 \icmltitlerunning{Group 2 Update 1}
 
 \begin{document} 
 
-\twocolumn[
-\icmltitle{Group 2 Update 1: United States Obesity Risk Factor Exploration}
-
-% It is OKAY to include author information, even for blind
-% submissions: the style file will automatically remove it for you
-% unless you've provided the [accepted] option to the icml2015
-% package.
-\icmlauthor{Brian Desnoyers}{bdesnoy@ccs.neu.edu}
-%\icmladdress{Your Fantastic Institute,
-%            314159 Pi St., Palo Alto, CA 94306 USA}
-\icmlauthor{Alankrit Joshi}{alankrit93@ccs.neu.edu}
-\icmlauthor{Rahul Kondakrindi}{rahulkondakrindi@ccs.neu.edu}
-\icmlauthor{Prasanna Vikash Peddinti}{vikash4281@ccs.neu.edu}
-\icmlauthor{Junyi Wang}{wang4615@ccs.neu.edu}
-
-% You may provide any keywords that you 
-% find helpful for describing your paper; these are used to populate 
-% the "keywords" metadata in the PDF but will not be shown in the document
-%\icmlkeywords{boring formatting information, machine learning, ICML}
-
-\vskip 0.3in
-]
-
-% \begin{abstract} 
-% \end{abstract} 
-
-\section{Introduction and Dataset}
-\label{introduction}
-
-Obesity is a major challenge facing the healthcare system in the United States. Obesity rates have risen significantly over the last thirty years and if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
-In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the environment. 
-Environmental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
-The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to obesity and health.
-\\\\
-For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC).
-This dataset provides information on the percentage of the population suffering from adult obesity, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. 
-These data also include potential risk factor features, such as age, education, sex, and income \cite{nutphysactobesitydata}.
-In addition, this dataset provides similar population information for child obesity, infant breastfeeding, active transportation, and community policy supports.
-
-\section{Preprocessing}
-\label{preprocessing}
-The main purpose of our team's work for this update was driven around exploratory analysis, which started with data pre-processing. Since the dataset from the CSV was available in CSV format, it was easy to read without file format conversion. After reading in the dataset, we focused on understanding each column to allow us to extract the columns useful for our analysis. 
-\\\\
-Unfortunately the raw dataset relies on a relatively combersome "question-based" format corresponding to different types of data values, such as percentage of adults who are overweight. To deal with this, we developed functions to filter the dataset based on specific question types, which we utilized for additional exploratory analysis.
-\\\\ 
-In addition, because the overwieght percentages did not include obese adults, we had to update all of the overweight values to also include the 
-
-\section{Exploratory Analysis and Results}
-\label{results}
-Our initial exploratory analysis involved generating state-wise interactive plots for each condition in the dataset. These plots were shown on an interactive map, which allowed our team to begin to explore and understand the dataset. The conditions plotted were percentage of adults who are obese, the percentage of adults who are overweight, the percentage of adults who engage in no physical activity, the percentage of adults who eat less than one fruit per day, and the percentage of adults who eat less than one vegetable per day. Screenshots of these plots are shown in Figures [cite figures here] below. 
-% Add plots
-From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
-% Expand on these here- what are the patterns we see in these plots
-
-% Do same thing for rest of plots
-% Explain specifically how they are made and what is plotted where, what error bars mean
-% For scatters, this is a relation, but remember correlation doesn't imply causation, so don't claim that bad diet causes obesity, etc.
-% For bar plots, this is just a visual representation for comparison
-% Explain why they are useful- how they will drive next steps- what they allow us to understand
-
-\section{Next Steps and Future Work}
-\label{futurework}
-Now that this exploratory analysis is complete, our team plans to...   
-% Say the clustering stuff we will do here
-
-
-
-
-% In the unusual situation where you want a paper to appear in the
-% references without citing it in the main text, use \nocite
-%\nocite{langley00}
-
-\bibliography{update}
-\bibliographystyle{icml2015}
+	\twocolumn[
+	\icmltitle{Group 2 Update 1: United States Obesity Risk Factor Exploration}
+	
+	% It is OKAY to include author information, even for blind
+	% submissions: the style file will automatically remove it for you
+	% unless you've provided the [accepted] option to the icml2015
+	% package.
+	\icmlauthor{Brian Desnoyers}{bdesnoy@ccs.neu.edu}
+	%\icmladdress{Your Fantastic Institute,
+	%            314159 Pi St., Palo Alto, CA 94306 USA}
+	\icmlauthor{Alankrit Joshi}{alankrit93@ccs.neu.edu}
+	\icmlauthor{Rahul Kondakrindi}{rahulkondakrindi@ccs.neu.edu}
+	\icmlauthor{Prasanna Vikash Peddinti}{vikash4281@ccs.neu.edu}
+	\icmlauthor{Junyi Wang}{wang4615@ccs.neu.edu}
+	
+	% You may provide any keywords that you 
+	% find helpful for describing your paper; these are used to populate 
+	% the "keywords" metadata in the PDF but will not be shown in the document
+	%\icmlkeywords{boring formatting information, machine learning, ICML}
+	
+	\vskip 0.3in
+	]
+	
+	% \begin{abstract} 
+	% \end{abstract} 
+	
+	\section{Introduction and Dataset}
+		\label{introduction}
+		
+		Obesity is a major challenge facing the healthcare system in the United States. Obesity rates have risen significantly over the last thirty years and if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
+		In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the environment. 
+		Environmental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
+		The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to obesity and health.
+		\\\\
+		For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC).
+		This dataset provides information on the percentage of the population suffering from adult obesity, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. 
+		These data also include potential risk factor features, such as age, education, sex, and income \cite{nutphysactobesitydata}.
+		In addition, this dataset provides similar population information for child obesity, infant breastfeeding, active transportation, and community policy supports.
+		
+	\section{Preprocessing}
+		\label{preprocessing}
+		The main purpose of our team's work for this update was driven around exploratory analysis, which started with data pre-processing. Since the dataset from the CSV was available in CSV format, it was easy to read without file format conversion. After reading in the dataset, we focused on understanding each column to allow us to extract the columns useful for our analysis. 
+		\\\\
+		Unfortunately the raw dataset relies on a relatively combersome "question-based" format corresponding to different types of data values, such as percentage of adults who are overweight. To deal with this, we developed functions to filter the dataset based on specific question types, which we utilized for additional exploratory analysis.
+		\\\\ 
+		In addition, because the overwieght percentages did not include obese adults, we had to update all of the overweight values to also include them.
+		
+	\section{Exploratory Analysis and Results}
+		\label{results}
+		Our initial exploratory analysis involved generating state-wise interactive plots for each condition in the dataset. These plots were shown on an interactive map, which allowed our team to begin to explore and understand the dataset. The conditions plotted were percentage of adults who are obese, the percentage of adults who are overweight, the percentage of adults who engage in no physical activity, the percentage of adults who eat less than one fruit per day, and the percentage of adults who eat less than one vegetable per day. Screenshots of these plots are shown in \Cref{fig:obesityByState,fig:overweightAdultsByLocation,fig:inactivityByLocation,fig:vegetableMalnutritionByLocation,fig:fruitMalnutritionByLocation,fig:fruitMalnutritionVsObesity,fig:fruitMalnutritionByLocation,fig:aerobicActivityVsObesity,fig:fruitMalnutritionByLocation,fig:noPhyActivityVsObesity,fig:aerobicVsMalnutrition,fig:trainingVsObesity,fig:vegMalnutritionVsObesity} below. 
+		\begin{figure}[h]
+			\centering
+			\caption{Obesity by State}
+			\includegraphics[width=\linewidth]{"1 obesity by state (alternate)".png}
+			\label{fig:obesityByState}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{Overweight Adults by Location}
+			\includegraphics[width=\linewidth]{"2 overweight by location (alternate)".png}
+			\label{fig:overweightAdultsByLocation}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{Inactivity by Location}
+			\includegraphics[width=\linewidth]{"3 inactivity by location (alternate)".png}
+			\label{fig:inactivityByLocation}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{Vegetable Malnutrition by Location}
+			\includegraphics[width=\linewidth]{"4 veg malnutrition by location (alternate)".png}
+			\label{fig:vegetableMalnutritionByLocation}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{Fruit Malnutrition by Location}
+			\includegraphics[width=\linewidth]{"5 fruit malnutrition by location (alternate)".png}
+			\label{fig:fruitMalnutritionByLocation}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{}
+			\includegraphics[width=\linewidth]{"6 AerobicActivityVsObesity".png}
+			\label{fig:aerobicActivityVsObesity}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{}
+			\includegraphics[width=\linewidth]{"7 FruitMalnutritionVsObesity".png}
+			\label{fig:fruitMalnutritionVsObesity}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{}
+			\includegraphics[width=\linewidth]{"8 NoPhyActivityVsObesity".png}
+			\label{fig:noPhyActivityVsObesity}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{}
+			\includegraphics[width=\linewidth]{"9 AerobicVsMalnutrition(Education)".png}
+			\label{fig:aerobicVsMalnutrition}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{}
+			\includegraphics[width=\linewidth]{"10 TrainingVsObesity(Age-Comparision)".png}
+			\label{fig:trainingVsObesity}
+		\end{figure}
+		\begin{figure}[h]
+			\centering
+			\caption{}
+			\includegraphics[width=\linewidth]{"11 VegMalnutritionVsObesity(Age-comparision)".png}
+			\label{fig:vegMalnutritionVsObesity}
+		\end{figure}
+		\\\\
+		From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
+		% Expand on these here- what are the patterns we see in these plots
+		
+		% Do same thing for rest of plots
+		% Explain specifically how they are made and what is plotted where, what error bars mean
+		% For scatters, this is a relation, but remember correlation doesn't imply causation, so don't claim that bad diet causes obesity, etc.
+		% For bar plots, this is just a visual representation for comparison
+		% Explain why they are useful- how they will drive next steps- what they allow us to understand
+	
+	\section{Next Steps and Future Work}
+		\label{futurework}
+		Now that this exploratory analysis is complete, we have a fair idea of how to move forward with grouping regions based on their obesity and nutrition statistics. Our team plans to move forward with cluster analysis and visualizations. 
+		\\\\
+		% Say the clustering stuff we will do here
+		We will start with hierarchical clustering with euclidean distance metric and visualize by presenting the links between different regions using a dendogram.
+		\\\\
+		The next step, as detailed in the proposal, would be to experiment with single-linkage and complete-linkage clustering and reason out the differences.
+		\\\\
+		Comparing these results with DBSCAN would give us a more precise assessment of how accurate our clustering is by identifying noise and arbitrarily shaped clusters.
+		\\\\
+		The final step of the cluster analysis would involve performing \textit{k}-means for several values of \textit{k}, plotting objective function for each. We will select a \textit{k} based on the "kink" in objective function and then proceed with plotting the results.
+		
+		
+		
+		% In the unusual situation where you want a paper to appear in the
+		% references without citing it in the main text, use \nocite
+		%\nocite{langley00}
+	
+	\bibliography{update}
+	\bibliographystyle{icml2015}
 
 \end{document} 
 
