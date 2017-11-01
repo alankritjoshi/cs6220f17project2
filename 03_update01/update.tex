@@ -69,21 +69,46 @@
 % \begin{abstract} 
 % \end{abstract} 
 
-\section{Introduction}
+\section{Introduction and Dataset}
 \label{introduction}
 
 Obesity is a major challenge facing the healthcare system in the United States. Obesity rates have risen significantly over the last thirty years and if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
 In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the environment. 
 Environmental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
 The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to obesity and health.
-
-\section{Dataset}
-\label{dataset}
-
+\\\\
 For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC).
 This dataset provides information on the percentage of the population suffering from adult obesity, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. 
 These data also include potential risk factor features, such as age, education, sex, and income \cite{nutphysactobesitydata}.
 In addition, this dataset provides similar population information for child obesity, infant breastfeeding, active transportation, and community policy supports.
+
+\section{Preprocessing}
+\label{preprocessing}
+The main purpose of our team's work for this update was driven around exploratory analysis, which started with data pre-processing. Since the dataset from the CSV was available in CSV format, it was easy to read without file format conversion. After reading in the dataset, we focused on understanding each column to allow us to extract the columns useful for our analysis. 
+\\\\
+Unfortunately the raw dataset relies on a relatively combersome "question-based" format corresponding to different types of data values, such as percentage of adults who are overweight. To deal with this, we developed functions to filter the dataset based on specific question types, which we utilized for additional exploratory analysis.
+\\\\ 
+In addition, because the overwieght percentages did not include obese adults, we had to update all of the overweight values to also include the 
+
+\section{Exploratory Analysis and Results}
+\label{results}
+Our initial exploratory analysis involved generating state-wise interactive plots for each condition in the dataset. These plots were shown on an interactive map, which allowed our team to begin to explore and understand the dataset. The conditions plotted were percentage of adults who are obese, the percentage of adults who are overweight, the percentage of adults who engage in no physical activity, the percentage of adults who eat less than one fruit per day, and the percentage of adults who eat less than one vegetable per day. Screenshots of these plots are shown in Figures [cite figures here] below. 
+% Add plots
+From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
+% Expand on these here- what are the patterns we see in these plots
+
+% Do same thing for rest of plots
+% Explain specifically how they are made and what is plotted where, what error bars mean
+% For scatters, this is a relation, but remember correlation doesn't imply causation, so don't claim that bad diet causes obesity, etc.
+% For bar plots, this is just a visual representation for comparison
+% Explain why they are useful- how they will drive next steps- what they allow us to understand
+
+\section{Next Steps and Future Work}
+\label{futurework}
+Now that this exploratory analysis is complete, our team plans to...   
+% Say the clustering stuff we will do here
+
+
 
 
 % In the unusual situation where you want a paper to appear in the
