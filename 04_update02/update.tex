@@ -182,25 +182,109 @@ To do this, we performed $k$-means, DBSCAN, and hierarchical clustering across t
 Before clustering, we first normalized the risk factor data to be scaled from $0$ to $1$. The specific features utilized were: percentage of residents who are high school graduates, percentage of residents with a Bachelor's degree, percentage of residents with an advanced degree, percentage of residents who are white, percentage of residents who are black or African American, percentage of residents who are American Indian or Alaska Native, percentage of residents who are Asian, percentage of residents who are Native Hawaiian or Other Pacific Islander, percentage of residents who are some other race, percentage of residents who are two or more races	, per capita income in dollars, median household income in dollars, and median family income in dollars.
 
 \subsubsection{$k$-means}
-To select a value of $k$, we performed $k$-means clustering for several values of $k$ and plotted the objectives as shown in \ref{}. From this plot, we identified $5$ as a value to use for clustering. We then performed $k$-means clustering with $k=5$ and plotted the results on a two-dimensional scatter plot (\ref{}) and state map (\ref{}). The data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+To select a value of $k$, we performed $k$-means clustering for several values of $k$ and plotted the objectives as shown in \cref{fig:kmeanssocioselect}. From this plot, we identified $5$ as a value to use for clustering. We then performed $k$-means clustering with $k=5$ and plotted the results on a two-dimensional scatter plot (\cref{fig:kmeanssocioscat}) and state map (\cref{fig:kmeanssociomap}). The data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+
+\begin{figure}[h]
+\centering
+\caption{Objective function results as a function of $k$ used to select a value of $k$ for $k$-means clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"15 socioeconomic risk factor clustering (knn)".png}
+\label{fig:kmeanssocioselect}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Two dimensional plot of clusters from $k$-means clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"16 socioeconomic risk factor clustering (k-pca)".png}
+\label{fig:kmeanssocioscat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Geographic plot of clusters from $k$-means clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"12 socioeconomic risk factor clustering (k-means)".png}
+\label{fig:kmeanssociomap}
+\end{figure}
 
 \subsubsection{DBSCAN}
-We then performed DBSCAN with $\epsilon = 0.6$ and $minPts = 6$ because they achieved less than $5\%$ noise. This resulted in a single cluster with four noise points as seen in \ref{} and \ref{}. Like performed previously, the data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+We then performed DBSCAN with $\epsilon = 0.6$ and $minPts = 6$ because they achieved less than $5\%$ noise. This resulted in a single cluster with four noise points as seen in \cref{fig:dbsocioscat, fig:dbsociomap}. Like performed previously, the data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+
+\begin{figure}[h]
+\centering
+\caption{Two dimensional plot of clusters from DBSCAN clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"17 socioeconomic risk factor clustering (d-pca)".png}
+\label{fig:dbsocioscat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Geographic plot of clusters from DBSCAN clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"13 socioeconomic risk factor clustering (dbscan)".png}
+\label{fig:dbsociomap}
+\end{figure}
 
 \subsubsection{Hierarchical Clustering}
-We then performed agglomerative hierarchical clustering using a Ward distance metric. The Ward metric was selected after comparing results from the single, complete, and average linkage metrics. This clustering is shown in \ref{}.
+We then performed agglomerative hierarchical clustering using a Ward distance metric. The Ward metric was selected after comparing results from the single, complete, and average linkage metrics. This clustering is shown in \cref{fig:dbsociodg}.
 
-\subsection{CDC Health Behaviour and Outcomes}
+\begin{figure}[h]
+\centering
+\caption{Dendrogram from hierarchical clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"14 socioeconomic risk factor clustering (agglo)".png}
+\label{fig:dbsociodg}
+\end{figure}
+
+\subsection{CDC Health Behavior and Outcomes}
 Before clustering, we first normalized the CDC health behavior and outcomes data to be scaled from $0$ to $1$. The specific features utilized were: percentage of residents who are obese, percentage of residents who are overweight, percentage of residents who do not engage in physical activity, percentage of residents who engage in vigerous aerobic activity, percentage of residents who consume less than one vegetable per day, and percentage of residents who consume less than one fruit per day.
 
 \subsubsection{$k$-means}
-To select a value of $k$, we performed $k$-means clustering for several values of $k$ and plotted the objectives as shown in \ref{}. From this plot, we identified $3$ as a value to use for clustering. We then performed $k$-means clustering with $k=3$ and plotted the results on a two-dimensional scatter plot (\ref{}) and state map (\ref{}). The data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+To select a value of $k$, we performed $k$-means clustering for several values of $k$ and plotted the objectives as shown in \cref{fig:kmeanshealthselect}. From this plot, we identified $3$ as a value to use for clustering. We then performed $k$-means clustering with $k=3$ and plotted the results on a two-dimensional scatter plot (\ref{fig:kmeanshealthscat}) and state map (\ref{fig:kmeanshealthmap}). The data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+
+\begin{figure}[h]
+\centering
+\caption{Objective function results as a function of $k$ used to select a value of $k$ for $k$-means clustering of health behavior and outcome data.}
+\includegraphics[width=\linewidth]{"21 cdc health behavior outcomes clustering (knn)".png}
+\label{fig:kmeanshealthselect}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Two dimensional plot of clusters from $k$-means clustering of health behavior and outcome data.}
+\includegraphics[width=\linewidth]{"22 cdc health behavior outcomes clustering (k-pca)".png}
+\label{fig:kmeanshealthscat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Geographic plot of clusters from $k$-means clustering of health behavior and outcome data.}
+\includegraphics[width=\linewidth]{"18 cdc health behavior outcomes clustering (k-means)".png}
+\label{fig:kmeanshealthmap}
+\end{figure}
 
 \subsubsection{DBSCAN}
-We then performed DBSCAN with $\epsilon = 0.2$ and $minPts = 3$ because they achieved less than $5\%$ noise. This resulted in a single cluster with four noise points as seen in \ref{} and \ref{}. Like performed previously, the data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+We then performed DBSCAN with $\epsilon = 0.2$ and $minPts = 3$ because they achieved less than $5\%$ noise. This resulted in a single cluster with four noise points as seen in \cref{fig:dbhealthscat, fig:dbhealthmap}. Like performed previously, the data was reduced to two dimensions for plotting by applying principal component analysis (PCA) and selecting the first two principal components.
+
+\begin{figure}[h]
+\centering
+\caption{Two dimensional plot of clusters from DBSCAN clustering of health behavior and outcome data.}
+\includegraphics[width=\linewidth]{"23 socioeconomic risk factor clustering (d-pca)".png}
+\label{fig:dbhealthscat}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\caption{Geographic plot of clusters from DBSCAN clustering of health behavior and outcome data.}
+\includegraphics[width=\linewidth]{"19 cdc health behavior outcomes clustering (dbscan)".png}
+\label{fig:dbhealthmap}
+\end{figure}
 
 \subsubsection{Hierarchical Clustering}
-We then performed agglomerative hierarchical clustering using a Ward distance metric. The Ward metric was selected after comparing results from the single, complete, and average linkage metrics. This clustering is shown in \ref{}.
+We then performed agglomerative hierarchical clustering using a Ward distance metric. The Ward metric was selected after comparing results from the single, complete, and average linkage metrics. This clustering is shown in \ref{fig:dbhealthdg}.
+
+\begin{figure}[h]
+\centering
+\caption{Dendrogram from hierarchical clustering of socioeconomic risk factor data.}
+\includegraphics[width=\linewidth]{"20 cdc health behavior outcomes clustering (agglo)".png}
+\label{fig:dbhealthdg}
+\end{figure}
 
 \section{Discussion}
 \label{Discussion}
@@ -211,222 +295,6 @@ When visualized in two dimensions, cluster density appears to be relatively cons
 \bibliographystyle{icml2015}
 
 
-<<<<<<< HEAD
-=======
-	\twocolumn[
-	\icmltitle{Group 2 Update 2: United States Obesity Risk Factor Data Analysis}
-	
-	% It is OKAY to include author information, even for blind
-	% submissions: the style file will automatically remove it for you
-	% unless you've provided the [accepted] option to the icml2015
-	% package.
-	\icmlauthor{Brian Desnoyers}{bdesnoy@ccs.neu.edu}
-	%\icmladdress{Your Fantastic Institute,
-	%            314159 Pi St., Palo Alto, CA 94306 USA}
-	\icmlauthor{Alankrit Joshi}{alankrit93@ccs.neu.edu}
-	\icmlauthor{Rahul Kondakrindi}{rahulkondakrindi@ccs.neu.edu}
-	\icmlauthor{Prasanna Vikash Peddinti}{vikash4281@ccs.neu.edu}
-	\icmlauthor{Junyi Wang}{wang4615@ccs.neu.edu}
-	
-	% You may provide any keywords that you 
-	% find helpful for describing your paper; these are used to populate 
-	% the "keywords" metadata in the PDF but will not be shown in the document
-	%\icmlkeywords{boring formatting information, machine learning, ICML}
-	
-	\vskip 0.3in
-	]
-	
-	% \begin{abstract} 
-	% \end{abstract} 
-	
-	\section{Introduction and Dataset}
-		\label{introduction}
-		
-		Obesity is a major challenge facing the healthcare system in the United States. Obesity rates have risen significantly over the last thirty years and if this trend continues, the United States healthcare system is projected to pay \$150 billion annually \cite{hurt2010obesity}.
-		In addition to genetic factors, this increase in obesity rates, inactivity, and malnutrition has been linked to the environment. 
-		Environmental changes; such as car transportation, inactive jobs, carry out food, food advertisements, and food portions; can be tied to specific regions and have a significant impact on health \cite{whyobesityhealthproblem, understandingadultoverweight}. 
-		The main goal of this project is to explore the distribution of these risk factors across the United States and visualize how these groupings correspond to obesity and health.
-		\\\\
-		For this project, we will analyze the Nutrition, Physical Activity, and Obesity dataset provided by the Centers for Disease Control and Prevention (CDC).
-		This dataset provides information on the percentage of the population suffering from adult obesity, as well as associated behaviors, such as poor nutrition and physical inactivity, for the nation, states, and selected sub-state districts. 
-		These data also include potential risk factor features, such as age, education, sex, and income \cite{nutphysactobesitydata}.
-		In addition, this dataset provides similar population information for child obesity, infant breastfeeding, active transportation, and community policy supports.
-		
-	\section{Preprocessing}
-		\label{preprocessing}
-		The main purpose of our team's work for this update was driven around exploratory analysis, which started with data pre-processing. Since the dataset from the CSV was available in CSV format, it was easy to read without file format conversion. After reading in the dataset, we focused on understanding each column to allow us to extract the columns useful for our analysis. 
-		\\\\
-		Unfortunately the raw dataset relies on a relatively combersome "question-based" format corresponding to different types of data values, such as percentage of adults who are overweight. To deal with this, we developed functions to filter the dataset based on specific question types, which we utilized for additional exploratory analysis.
-		\\\\ 
-		In addition, because the overwieght percentages did not include obese adults, we had to update all of the overweight values to also include them.
-		
-	\section{Exploratory Analysis and Results}
-		\label{results}
-		Our initial exploratory analysis involved generating state-wise interactive plots for each condition in the dataset. These plots were shown on an interactive map, which allowed our team to begin to explore and understand the dataset. The conditions plotted were percentage of adults who are obese, the percentage of adults who are overweight, the percentage of adults who engage in no physical activity, the percentage of adults who eat less than one fruit per day, and the percentage of adults who eat less than one vegetable per day. Screenshots of these plots are shown in \cref{fig:obesityByState,fig:overweightAdultsByLocation,fig:inactivityByLocation,fig:vegetableMalnutritionByLocation,fig:fruitMalnutritionByLocation} below. 
-		\begin{figure}[h]
-			\centering
-			\caption{Obesity by State}
-			\includegraphics[width=\linewidth]{"1 obesity by state (alternate)".png}
-			\label{fig:obesityByState}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{Overweight Adults by Location}
-			\includegraphics[width=\linewidth]{"2 overweight by location (alternate)".png}
-			\label{fig:overweightAdultsByLocation}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{Inactivity by Location}
-			\includegraphics[width=\linewidth]{"3 inactivity by location (alternate)".png}
-			\label{fig:inactivityByLocation}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{Vegetable Malnutrition by Location}
-			\includegraphics[width=\linewidth]{"4 veg malnutrition by location (alternate)".png}
-			\label{fig:vegetableMalnutritionByLocation}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{Fruit Malnutrition by Location}
-			\includegraphics[width=\linewidth]{"5 fruit malnutrition by location (alternate)".png}
-			\label{fig:fruitMalnutritionByLocation}
-		\end{figure}
-		\\\\
-		From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
-		% Expand on these here- what are the patterns we see in these plots
-		We also wanted to start visualizing relationships between specific features to understand the dataset in finer detail. One way we did this was to look at the relationship between some of the other conditions and obesity on a state-by-state basis. These plots are shown in \cref{fig:fruitMalnutritionVsObesity,fig:aerobicActivityVsObesity,fig:noPhyActivityVsObesity}. 
-		\\\\
-		We also wanted to create plots to visually look at the percentages of adults in these other conditions and obesity based on age and educational risk factors. We have included a few of these plots in \cref{fig:aerobicVsMalnutrition,fig:trainingVsObesity,fig:vegMalnutritionVsObesity} below.
-		% Do same thing for rest of plots
-		\begin{figure}[h]
-			\centering
-			\caption{}
-			\includegraphics[width=\linewidth]{"6 AerobicActivityVsObesity".png}
-			\label{fig:aerobicActivityVsObesity}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{}
-			\includegraphics[width=\linewidth]{"7 FruitMalnutritionVsObesity".png}
-			\label{fig:fruitMalnutritionVsObesity}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{}
-			\includegraphics[width=\linewidth]{"8 NoPhyActivityVsObesity".png}
-			\label{fig:noPhyActivityVsObesity}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{}
-			\includegraphics[width=\linewidth]{"9 AerobicVsMalnutrition(Education)".png}
-			\label{fig:aerobicVsMalnutrition}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{}
-			\includegraphics[width=\linewidth]{"10 TrainingVsObesity(Age-Comparision)".png}
-			\label{fig:trainingVsObesity}
-		\end{figure}
-		\begin{figure}[h]
-			\centering
-			\caption{}
-			\includegraphics[width=\linewidth]{"11 VegMalnutritionVsObesity(Age-comparision)".png}
-			\label{fig:vegMalnutritionVsObesity}
-		\end{figure}
-		% Explain specifically how they are made and what is plotted where, what error bars mean
-		% For scatters, this is a relation, but remember correlation doesn't imply causation, so don't claim that bad diet causes obesity, etc.
-		% For bar plots, this is just a visual representation for comparison
-		% Explain why they are useful- how they will drive next steps- what they allow us to understand
-		
-	\section{Data Analysis}
-		\label{futurework}
-		\subsection{Socioeconomic Risk Factors}
-			\subsubsection{k-means}
-				\begin{figure}[h]
-					\centering
-					\caption{SSE vs $k$}
-					\includegraphics[width=\linewidth]{"15 socioeconomic risk factor clustering (knn)".png}
-					\label{fig:socioKnn}
-				\end{figure}
-				\begin{figure}[h]
-					\centering
-					\caption{PCA}
-					\includegraphics[width=\linewidth]{"16 socioeconomic risk factor clustering (k-pca)".png}
-					\label{fig:socioKpca}
-				\end{figure}
-				\begin{figure}[h]
-					\centering
-					\caption{k-means}
-					\includegraphics[width=\linewidth]{"12 socioeconomic risk factor clustering (k-means)".png}
-					\label{fig:socioKmeans}
-				\end{figure}
-			\subsubsection{DBSCAN}
-				\begin{figure}[h]
-					\centering
-					\caption{PCA}
-					\includegraphics[width=\linewidth]{"17 socioeconomic risk factor clustering (d-pca)".png}
-					\label{fig:socioDpca}
-				\end{figure}
-				\begin{figure}[h]
-					\centering
-					\caption{DBSCAN}
-					\includegraphics[width=\linewidth]{"13 socioeconomic risk factor clustering (dbscan)".png}
-					\label{fig:socioDbscan}
-				\end{figure}
-			\subsubsection{Hierarchical Clustering}
-				\begin{figure}[h]
-					\centering
-					\caption{Agglomerative}
-					\includegraphics[width=\linewidth]{"14 socioeconomic risk factor clustering (agglo)".png}
-					\label{fig:socioAgglo}
-				\end{figure}
-		\subsection{CDC Health Behaviour and Outcomes}
-			\subsubsection{k-means}
-				\begin{figure}[h]
-					\centering
-					\caption{SSE vs $k$}
-					\includegraphics[width=\linewidth]{"21 cdc health behavior outcomes clustering (knn)".png}
-					\label{fig:combinedKnn}
-				\end{figure}
-				\begin{figure}[h]
-					\centering
-					\caption{PCA}
-					\includegraphics[width=\linewidth]{"22 cdc health behavior outcomes clustering (k-pca)".png}
-					\label{fig:combinedKpca}
-				\end{figure}
-				\begin{figure}[h]
-					\centering
-					\caption{k-means}
-					\includegraphics[width=\linewidth]{"18 cdc health behavior outcomes clustering (k-means)".png}
-					\label{fig:combinedKmeans}
-				\end{figure}
-			\subsubsection{DBSCAN}
-				\begin{figure}[h]
-					\centering
-					\caption{PCA}
-					\includegraphics[width=\linewidth]{"23 socioeconomic risk factor clustering (d-pca)".png}
-					\label{fig:combinedDpca}
-				\end{figure}
-				\begin{figure}[h]
-					\centering
-					\caption{DBSCAN}
-					\includegraphics[width=\linewidth]{"19 cdc health behavior outcomes clustering (dbscan)".png}
-					\label{fig:combinedDbscan}
-				\end{figure}
-			\subsubsection{Hierarchical Clustering}
-				\begin{figure}[h]
-					\centering
-					\caption{Agglomerative}
-					\includegraphics[width=\linewidth]{"20 cdc health behavior outcomes clustering (agglo)".png}
-					\label{fig:combinedAgglo}
-				\end{figure}
-	\section{Discussion}
-	\bibliography{update}
-	\bibliographystyle{icml2015}
->>>>>>> 5dc4a5d0d33b47dc04ede799be4d8256c6200584
 
 \end{document} 
 
