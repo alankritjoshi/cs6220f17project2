@@ -127,9 +127,8 @@ Our initial exploratory analysis involved generating state-wise interactive plot
 \\\\
 From the exploratory analysis of making these plots, our team has identified several regional patterns, which will be important to understand when working on our clustering analysis, which was specified in the project proposal.
 % Expand on these here- what are the patterns we see in these plots
-We also wanted to start visualizing relationships between specific features to understand the dataset in finer detail. One way we did this was to look at the relationship between some of the other conditions and obesity on a state-by-state basis. These plots are shown in \cref{fig:fruitMalnutritionVsObesity,fig:aerobicActivityVsObesity,fig:noPhyActivityVsObesity}. 
+We also wanted to start visualizing relationships between specific features to understand the dataset in finer detail. One way we did this was to look at the relationship between some of the other conditions and obesity on a state-by-state basis. These plots are shown in \cref{fig:fruitMalnutritionVsObesity,fig:aerobicActivityVsObesity}. 
 \\\\
-We also wanted to create plots to visually look at the percentages of adults in these other conditions and obesity based on age and educational risk factors. We have included a few of these plots in \cref{fig:aerobicVsMalnutrition,fig:trainingVsObesity,fig:vegMalnutritionVsObesity} below.
 \begin{figure}[h]
 \centering
 \caption{Correlation between Mean (over Years) Vigerous Aerobic Activity and Obesity}
@@ -142,34 +141,10 @@ We also wanted to create plots to visually look at the percentages of adults in 
 \includegraphics[width=\linewidth]{images/exploration_fruit_malnutrition_vs_obesity.pdf}
 \label{fig:fruitMalnutritionVsObesity}
 \end{figure}
-\begin{figure}[h]
-	\centering
-	\caption{Correlation between Mean (over Years) No Physical Activity and Obesity}
-	\includegraphics[width=\linewidth]{images/exploration_no_phy_activity_obesity.pdf}
-	\label{fig:noPhyActivityVsObesity}
-\end{figure}
 % Explain specifically how they are made and what is plotted where, what error bars mean
 % For scatters, this is a relation, but remember correlation doesn't imply causation, so don't claim that bad diet causes obesity, etc.
 % For bar plots, this is just a visual representation for comparison
 % Explain why they are useful- how they will drive next steps- what they allow us to understand
-\begin{figure}[h]
-	\centering
-	\caption{Comparision Between Vegetable Consumption and Aerobic Activity in various Education Categories}
-	\includegraphics[width=\linewidth]{images/exploration_aerobic_malnutrition.pdf}
-	\label{fig:aerobicVsMalnutrition}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\caption{Relation Between Strenth Training and Obesity in various Age Groups}
-	\includegraphics[width=\linewidth]{images/exploration_training_obesity.pdf}
-	\label{fig:trainingVsObesity}
-\end{figure}
-\begin{figure}[h]
-	\centering
-	\caption{Relation Between Vegetable Consumption and Obesity in various Age Groups}
-	\includegraphics[width=\linewidth]{images/exploration_veg_malnutrition_obesity.pdf}
-	\label{fig:vegMalnutritionVsObesity}
-\end{figure}
 \section{Data Mining Analysis}
 \label{dataanalysis}
 In our data analysis, we were interested in clustering the CDC health behavior outcomes data we explored previously to investigate regional health outcomes and trends. We also collected data on socioeconomic risk factors (education status, race, and income) from Wikipedia \cite{demodata, eduratesdata, incomedata}, which was clustered separately and compared to the health behavior outcomes clusterings. 
@@ -186,14 +161,14 @@ To select a value of $k$, we performed $k$-means clustering for several values o
 \begin{figure}[h]
 \centering
 \caption{Objective function results as a function of $k$ used to select a value of $k$ for $k$-means clustering of socioeconomic risk factor data.}
-\includegraphics[width=\linewidth]{"images/socioeconomic_risk_factors_kmeans_2d_plot.pdf}
+\includegraphics[width=\linewidth]{"images/socioeconomic_risk_factors_kmeans_objc_tuning.pdf}
 \label{fig:kmeanssocioselect}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \caption{Two dimensional plot of clusters from $k$-means clustering of socioeconomic risk factor data.}
-\includegraphics[width=\linewidth]{images/socioeconomic_risk_factors_kmeans_objc_tuning.pdf}
+\includegraphics[width=\linewidth]{images/socioeconomic_risk_factors_kmeans_2d_plot.pdf}
 \label{fig:kmeanssocioscat}
 \end{figure}
 
@@ -287,25 +262,53 @@ We then performed agglomerative hierarchical clustering using a Ward distance me
 
 \section{Discussion}
 \label{Discussion}
+Based on the first two principal components from PCA performed on the CDC health behavior outcomes data (Table \ref{pcs_cdc}), combined with the fact that there were only a total of 6 features, redundant features were not selected to eliminate. The same is true for the first two principal components from the socioeconomic risk factors data (Table \ref{pcs_socio}). However, for the socioeconomic risk factors data, features that poorly corresponded to the first principal component, such as ``\% White`` were incorporated more into the second principal component. Once again, the $14$ features did not appear to justify more rigorous feature selection. 
+\\\\
 When visualized in two dimensions, cluster density appears to be relatively consistent which may explain the relatively poor performance of DBSCAN in finding separate clusters without classifying a large number of data points as noise. Cluster shape and size do not seem to vary too much to suggest problems with $k$-means clustering. However, in understanding these connections, the hierarchical clustering proved most useful as a dendrogram allowed for a clear visualization of the number of clusters and their respective distances. Looking at these clusters obtained through $k$-means and hierarchical clustering, these clusterings appear to follow geographical boundaries. For example, in the clustering of socioeconomic risk factor data: southern and midwest states (such as Louisiana, Mississippi, Alabama, Arkansas, Oklahoma) and coastal states (such as Connecticut, California, Massachusetts, Alaska, Hawaii) can be seen. When compared via the dendrograms obtained through hierarchical clustering, states that are most similar based on socioeconomic risk factors are often also similar in terms of health outcomes (for example, New York and Rhode Island). 
 \\\\
 The cophenetic correlation distances for the socioeconomic risk factor and CDC health behavior outcomes clustering were $0.549033284833$ and $0.597008648578$, respectively. While not ideal, these values are relatively close to one and indicate at least some correlation.
 \\\\
 To attempt to quantify the similarity between the clusterings of the two datasets, we first used the dendrograms generated through hierarchical clustering to set a cutoff distance to generate specific clusterings. These cutoff distances were $2.75$ for the socioeconomic data clustering and $1.75$ for the CDC health behavior outcomes data clustering. We then measured the percentage of state pairings clustered identically (either in same or different clusters) between both the socioeconomic risk factor clustering and CDC health behavior and outcome clustering. This similarity measure was $56.9\%$, which seems to indicate some degree of similarity between these two clusterings. More detailed methods for comparing hierarchical clusterings can be utilized in future works, which can help identify states with similar socioeconomic risk factors but very different health behavior outcomes.
 
-\begin{figure}[h]
-	\centering
-	\caption{Interpreting Principal Components- Socioeconomic Risk}
-	\includegraphics[width=\linewidth]{images/interpreting_pca_socioeconomic.png}
-	\label{fig:pcaInterpretSocio}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\caption{Interpreting Principal Components- CDC Health Behavior}
-	\includegraphics[width=\linewidth]{images/interpreting_pca_cdc.png}
-	\label{fig:pcaInterpretCDC}
-\end{figure}
+\onecolumn
+\begin{table}[]
+\centering
+\caption{First two principal components for CDC health behavior outcomes data}
+\label{pcs_cdc}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{2}{|l|}{PC1}              & \multicolumn{2}{l|}{PC2}               \\ \hline
+\% \textless 1 Fruit / Day & 0.459181  & \% Vigorous Aerobic        & -0.627665 \\ \hline
+\% Obesity                 & 0.418273  & \% Overweight              & -0.410559 \\ \hline
+\% Inactive                & 0.411431  & \% Obesity                 & -0.409127 \\ \hline
+\% Overweight              & 0.407122  & \% Inactive                & 0.329247  \\ \hline
+\% Vigorous Aerobic        & -0.379775 & \% \textless 1 Fruit / Day & -0.29556  \\ \hline
+\% \textless 1 Veg/ Day    & 0.367353  & \% \textless 1 Veg/ Day    & 0.272643  \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[]
+\centering
+\caption{First two principal components for socioeconomic data}
+\label{pcs_socio}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{2}{|l|}{PC1}                                 & \multicolumn{2}{l|}{PC2}                                  \\ \hline
+\$ Median family income                       & 0.461288  & \% High school graduate                       & -0.575076 \\ \hline
+\$ Median household income                    & 0.452155  & \% Black or African American                  & 0.526907  \\ \hline
+\$ Per capita income                          & 0.389594  & \% White                                      & -0.370121 \\ \hline
+\% Bachelor's degree                          & 0.382095  & \% Some other race                            & 0.322323  \\ \hline
+\% Advanced degree                            & 0.370484  & \% Advanced degree                            & 0.254567  \\ \hline
+\% High school graduate                       & 0.318128  & \% American Indian and Alaska Native          & -0.218517 \\ \hline
+\% Black or African American                  & -0.143937 & \% Asian                                      & 0.127889  \\ \hline
+\% Asian                                      & 0.109871  & \% Bachelor's degree                          & 0.094785  \\ \hline
+\% Some other race                            & 0.072519  & \$ Median household income                    & 0.077591  \\ \hline
+\% Two or more races                          & 0.070956  & \$ Per capita income                          & 0.072180  \\ \hline
+\% Native Hawaiian and Other Pacific Islander & 0.052622  & \$ Median family income                       & 0.033356  \\ \hline
+\% White                                      & -0.025696 & \% Native Hawaiian and Other Pacific Islander & 0.018870  \\ \hline
+\% American Indian and Alaska Native          & -0.003568 & \% Two or more races                          & 0.013513  \\ \hline
+\end{tabular}
+\end{table}
+\twocolumn
 
 \bibliography{report}
 \bibliographystyle{icml2015}
