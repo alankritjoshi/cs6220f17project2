@@ -5,7 +5,8 @@
 https://chronicdata.cdc.gov/Nutrition-Physical-Activity-and-Obesity/Nutrition-Physical-Activity-and-Obesity-Behavioral/hn4x-zwk7
 
 ## Requirements
-```pip install -r requirements.txt```
+- Python 3.4+ with `pip`
+- ```pip install -r requirements.txt```
 
 ## Jupyter notebook
 Can be viewed [here](process_dataset.ipynb)
