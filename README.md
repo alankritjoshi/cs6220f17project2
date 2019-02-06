@@ -2,7 +2,7 @@
 > Northeastern University, CS 6220 Group Project, Dec '17
 
 ## Dataset
-https://chronicdata.cdc.gov/Nutrition-Physical-Activity-and-Obesity/Nutrition-Physical-Activity-and-Obesity-Behavioral/hn4x-zwk7
+[Nutrition, Physical Activity, and Obesity - Behavioral Risk Factor Surveillance System](https://chronicdata.cdc.gov/Nutrition-Physical-Activity-and-Obesity/Nutrition-Physical-Activity-and-Obesity-Behavioral/hn4x-zwk7)
 
 ## Requirements
 - Python 3.4+ with `pip`
